@@ -3,7 +3,7 @@ resource "aws_vpc" "minha_vpc" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "tf-vpc-calheon"
+    Name = "tf-vpc-brunorcs"
   }
 }
 
