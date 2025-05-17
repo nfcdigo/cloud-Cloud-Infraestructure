@@ -173,3 +173,20 @@ resource "aws_nat_gateway" "nat_gw_1b" {
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.igw]
 }
+
+# Correcao primeira issue
+resource "aws_flow_log" "example" {
+  log_destination      = "arn:aws:s3:::calheon-clc13-network-terraform-state"
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.minha_vpc.id
+}
+
+# Correcao segunda issue
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.minha_vpc.id
+  
+  tags = {
+    Name = "my-iac-sg"
+  }
+}
